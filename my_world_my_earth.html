@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My World & My Earth — Embrace | Protect | Cherish</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        earth: {
+                            blue: '#0E87CC',
+                            mint: '#2DD4BF',
+                            deep: '#0F2C59',
+                            light: '#E0F2FE',
+                            leaf: '#10B981',
+                            softBg: '#F0FDF4'
+                        },
+                        deepSea: {
+                            darkest: '#010A15',
+                            abyss: '#031327',
+                            midnight: '#052347',
+                            cyan: '#00F0FF',
+                            glow: '#0E87CC'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Animations & Glassmorphism */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(0.8deg); }
+        }
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 0.8; }
+        }
+        .animate-float {
+            animation: float 5s ease-in-out infinite;
+        }
+        .animate-pulse-glow {
+            animation: pulseGlow 4s ease-in-out infinite;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+        .deep-ocean-card {
+            background: linear-gradient(135deg, rgba(3, 19, 39, 0.85) 0%, rgba(1, 10, 21, 0.95) 100%);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            box-shadow: 0 10px 30px -10px rgba(0, 240, 255, 0.15);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #0E87CC 0%, #10B981 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .deep-ocean-gradient-text {
+            background: linear-gradient(135deg, #7DD3FC 0%, #00F0FF 50%, #34D399 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F0FDF4;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #10B981;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0E87CC;
+        }
+    </style>
+</head>
+<body class="font-sans bg-earth-softBg text-slate-800 flex flex-col min-h-screen overflow-x-hidden selection:bg-earth-mint selection:text-earth-deep">
+
+    <!-- 1. Sticky Header Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-card shadow-sm" id="mainHeader">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logo & Brand Permanen -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="relative">
+                    <img src="Gemini_Generated_Image_7wrq127wrq127wrq.jfif" 
+                         alt="My World & My Earth Logo" 
+                         class="w-11 h-11 sm:w-12 sm:h-12 object-cover rounded-full shadow-md group-hover:scale-105 transition-transform bg-white p-0.5 border border-emerald-200"
+                         onerror="this.onerror=null; this.src='https://placehold.co/100x100/0E87CC/FFFFFF?text=Earth+Logo';">
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-black text-base sm:text-xl tracking-tight text-earth-deep leading-none">MY WORLD <span class="text-earth-leaf">&amp; MY EARTH</span></span>
+                    <span class="text-[9px] sm:text-[10px] font-bold text-slate-400 tracking-widest uppercase mt-0.5">Embrace | Protect | Cherish</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-7 font-semibold text-slate-600 text-sm">
+                <a href="#hero" class="hover:text-earth-leaf transition-colors">Beranda</a>
+                <a href="#about" class="hover:text-earth-leaf transition-colors font-medium">Visi Harmoni</a>
+                <a href="#deep-ocean" class="hover:text-cyan-600 transition-colors text-cyan-700 font-bold flex items-center gap-1.5"><i class="fa-solid fa-water text-xs"></i> Deep Ocean</a>
+                <a href="#calculator" class="hover:text-earth-leaf transition-colors">Kalkulator Jejak</a>
+                <a href="#actions" class="hover:text-earth-leaf transition-colors">Aksi Hijau</a>
+                <a href="#gallery" class="hover:text-earth-leaf transition-colors">Galeri</a>
+            </nav>
+
+            <!-- Call to Action -->
+            <div class="hidden md:flex items-center gap-4">
+                <a href="#actions" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-earth-blue to-earth-leaf text-white font-bold text-sm shadow-md hover:opacity-95 hover:shadow-lg transition-all transform hover:-translate-y-0.5 flex items-center gap-2">
+                    <i class="fa-solid fa-seedling"></i> Mulai Aksi
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobileMenuBtn" class="md:hidden text-slate-700 text-2xl focus:outline-none p-2 rounded-lg hover:bg-white/50" aria-label="Toggle Navigation Menu">
+                <i class="fa-solid fa-bars" id="menuIcon"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobileMenu" class="hidden md:hidden glass-card border-t border-slate-100 px-6 py-6 flex-col gap-4 shadow-xl">
+            <a href="#hero" class="text-slate-700 font-semibold hover:text-earth-leaf py-1">Beranda</a>
+            <a href="#about" class="text-slate-700 font-semibold hover:text-earth-leaf py-1">Visi Harmoni</a>
+            <a href="#deep-ocean" class="text-cyan-700 font-bold hover:text-cyan-500 py-1 flex items-center gap-2"><i class="fa-solid fa-water"></i> Deep Ocean</a>
+            <a href="#calculator" class="text-slate-700 font-semibold hover:text-earth-leaf py-1">Kalkulator Jejak</a>
+            <a href="#actions" class="text-slate-700 font-semibold hover:text-earth-leaf py-1">Aksi Hijau</a>
+            <a href="#gallery" class="text-slate-700 font-semibold hover:text-earth-leaf py-1">Galeri</a>
+            <a href="#actions" class="mt-2 text-center py-3 rounded-full bg-gradient-to-r from-earth-blue to-earth-leaf text-white font-bold text-sm shadow">
+                <i class="fa-solid fa-seedling mr-1"></i> Mulai Aksi Sekarang
+            </a>
+        </div>
+    </header>
+
+    <main class="flex-grow pt-20">
+
+        <!-- 2. Hero Section dengan Interactive 3D Globe Canvas -->
+        <section id="hero" class="relative py-16 md:py-24 overflow-hidden flex items-center min-h-[90vh]">
+            <div class="absolute -top-24 -left-24 w-96 h-96 bg-earth-mint/20 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute top-1/2 -right-24 w-96 h-96 bg-earth-blue/20 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6 text-center lg:text-left z-10">
+                    
+                    <!-- Hero Badge dengan Logo Permanen -->
+                    <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/90 shadow-sm border border-emerald-200 text-earth-deep text-xs sm:text-sm font-semibold">
+                        <img src="Gemini_Generated_Image_7wrq127wrq127wrq.jfif" 
+                             class="w-6 h-6 rounded-full object-cover border border-emerald-400" 
+                             alt="Logo Badge"
+                             onerror="this.onerror=null; this.src='https://placehold.co/50x50/0E87CC/FFFFFF?text=Logo';">
+                        <span>Embrace | Protect | Cherish</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-earth-deep leading-tight">
+                        Cintai Dunia Kita, <br>
+                        <span class="gradient-text">Jaga Kelestarian Bumi.</span>
+                    </h1>
+
+                    <p class="text-slate-600 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                        Bumi adalah rumah bagi seluruh kehidupan. Dari ribuan hutan tropis hingga kedalaman samudra yang misterius, mari beraksi melindungi keberlanjutan planet ini.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#deep-ocean" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-gradient-to-r from-earth-deep to-deepSea-midnight text-cyan-300 font-bold text-base shadow-lg hover:shadow-cyan-500/20 transition-all text-center flex items-center justify-center gap-2 border border-cyan-500/30">
+                            <i class="fa-solid fa-water"></i> Eksplor Deep Ocean
+                        </a>
+                        <a href="#calculator" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white text-earth-deep border border-slate-200 font-bold text-base shadow-sm hover:bg-slate-50 transition-all text-center flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-calculator text-earth-blue"></i> Kalkulator Karbon
+                        </a>
+                    </div>
+
+                    <!-- Live Stat Counters -->
+                    <div class="grid grid-cols-3 gap-4 pt-8 border-t border-slate-200/80 max-w-lg mx-auto lg:mx-0">
+                        <div class="bg-white/70 p-3 rounded-2xl border border-slate-100 text-center">
+                            <span class="block text-2xl sm:text-3xl font-extrabold text-earth-deep">8.7M+</span>
+                            <span class="text-xs text-slate-500 font-semibold">Spesies Hayati</span>
+                        </div>
+                        <div class="bg-white/70 p-3 rounded-2xl border border-slate-100 text-center">
+                            <span class="block text-2xl sm:text-3xl font-extrabold text-earth-blue">71%</span>
+                            <span class="text-xs text-slate-500 font-semibold">Lautan &amp; Samudra</span>
+                        </div>
+                        <div class="bg-white/70 p-3 rounded-2xl border border-slate-100 text-center">
+                            <span class="block text-2xl sm:text-3xl font-extrabold text-earth-leaf">30%</span>
+                            <span class="text-xs text-slate-500 font-semibold">Daratan Hutan</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive 3D/2D Earth Canvas Simulation -->
+                <div class="relative flex justify-center items-center">
+                    <div class="relative w-72 h-72 sm:w-96 sm:h-96 md:w-[430px] md:h-[430px] rounded-full p-4 bg-white/50 border border-white/80 shadow-2xl glass-card flex items-center justify-center animate-float">
+                        <canvas id="globeCanvas" class="w-full h-full cursor-grab active:cursor-grabbing rounded-full"></canvas>
+                        
+                        <!-- Drag Interactive Pointer Hint -->
+                        <div class="absolute bottom-6 bg-slate-900/85 text-white text-[11px] px-3.5 py-1.5 rounded-full backdrop-blur-sm shadow pointer-events-none flex items-center gap-2 border border-white/20">
+                            <i class="fa-solid fa-hand-pointer text-earth-mint"></i> Drag / Putar Globe dengan Mouse
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Section: Tentang Kami / Visi Harmoni -->
+        <section id="about" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="relative">
+                        <div class="relative rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-tr from-earth-deep to-earth-blue p-8 sm:p-10 text-white">
+                            <div class="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-earth-mint/20 rounded-full blur-2xl"></div>
+                            <h3 class="text-2xl font-bold text-earth-mint mb-2">Visi Keberlanjutan</h3>
+                            <h4 class="text-3xl font-extrabold mb-4">Harmoni Manusia &amp; Ekosistem Bumi</h4>
+                            <p class="text-slate-200 text-sm leading-relaxed mb-6">
+                                "My World &amp; My Earth" didirikan atas dasar kesadaran bahwa keberadaan manusia tidak terpisahkan dari kesehatan planet bumi. Setiap napas yang kita hirup dan air yang kita minum bergantung pada ekosistem yang seimbang.
+                            </p>
+                            <div class="space-y-3 text-sm font-medium">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-full bg-earth-leaf/30 flex items-center justify-center text-earth-mint"><i class="fa-solid fa-check"></i></div>
+                                    <span>Menjaga keanekaragaman hayati dan habitat alami.</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-full bg-earth-leaf/30 flex items-center justify-center text-earth-mint"><i class="fa-solid fa-check"></i></div>
+                                    <span>Mengedukasi gaya hidup rendah karbon untuk semua.</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-full bg-earth-leaf/30 flex items-center justify-center text-earth-mint"><i class="fa-solid fa-check"></i></div>
+                                    <span>Mendorong eksplorasi laut dalam dan perlindungan samudra.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <span class="text-xs font-bold text-earth-leaf uppercase tracking-widest">Tentang Platform Kami</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-earth-deep leading-snug">Satu Langkah Kecil untuk Dampak Dunia yang Besar</h2>
+                        <p class="text-slate-600 text-base leading-relaxed">
+                            Kami percaya perubahan besar dimulai dari kesadaran individu. Melalui integrasi visual interaktif, eksplorasi laut dalam, tantangan aksi hijau harian, serta kalkulator jejak karbon, platform ini memberdayakan Anda untuk mengambil peran aktif dalam menjaga Bumi.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4 pt-2">
+                            <div class="p-4 rounded-2xl bg-earth-softBg border border-emerald-100">
+                                <i class="fa-solid fa-leaf text-2xl text-earth-leaf mb-2"></i>
+                                <h5 class="font-bold text-earth-deep text-base">Ramah Lingkungan</h5>
+                                <p class="text-xs text-slate-500 mt-1">Menginspirasi kebiasaan ramah bumi setiap hari.</p>
+                            </div>
+                            <div class="p-4 rounded-2xl bg-earth-light/50 border border-sky-100">
+                                <i class="fa-solid fa-globe text-2xl text-earth-blue mb-2"></i>
+                                <h5 class="font-bold text-earth-deep text-base">Komunitas Global</h5>
+                                <p class="text-xs text-slate-500 mt-1">Menghubungkan individu peduli lingkungan.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Special Section: DEEP OCEAN — The Mysterious World Beneath the Sea -->
+        <section id="deep-ocean" class="py-24 bg-gradient-to-b from-deepSea-darkest via-deepSea-abyss to-slate-950 text-white relative overflow-hidden">
+            <!-- Background Glow & Particles Accent -->
+            <div class="absolute top-0 right-0 w-full h-64 bg-gradient-to-b from-earth-softBg to-transparent opacity-10 pointer-events-none"></div>
+            <div class="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-[140px] pointer-events-none animate-pulse-glow"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-950/80 text-cyan-400 border border-cyan-500/40 text-xs font-extrabold tracking-widest uppercase mb-4 shadow-lg">
+                        <i class="fa-solid fa-water"></i> Ocean Exploration
+                    </div>
+                    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight">
+                        DEEP OCEAN
+                    </h2>
+                    <p class="text-lg sm:text-xl font-bold deep-ocean-gradient-text mt-2">
+                        The Mysterious World Beneath the Sea
+                    </p>
+                </div>
+
+                <!-- Featured Quote Card -->
+                <div class="deep-ocean-card p-8 sm:p-12 rounded-3xl shadow-2xl text-center max-w-4xl mx-auto mb-16 relative">
+                    <i class="fa-solid fa-quote-left text-6xl text-cyan-500/20 absolute top-4 left-6"></i>
+                    
+                    <blockquote class="text-xl sm:text-2xl md:text-3xl font-light italic text-cyan-100 leading-relaxed relative z-10 my-4">
+                        "The deeper we explore the ocean, the more we realize how much of our planet remains unknown."
+                    </blockquote>
+                    
+                    <div class="w-20 h-1 bg-gradient-to-r from-cyan-500 to-emerald-400 mx-auto rounded-full my-6"></div>
+                    
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto font-normal">
+                        The deep ocean reminds humanity that even in a world filled with advanced technology, there are still extraordinary mysteries waiting to be discovered.
+                    </p>
+                </div>
+
+                <!-- 3 Pillars of Deep Sea Exploration -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                    <div class="deep-ocean-card p-8 rounded-2xl hover:border-cyan-400/50 transition-all duration-300 group hover:-translate-y-1">
+                        <div class="w-14 h-14 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 mb-6 text-2xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-compass"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-cyan-100 mb-3">Explore the Unknown</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Lebih dari 80% samudra belum terpetakan. Laut dalam menyimpan parit-parit abisal dan lanskap bawah laut yang lebih luas dari pegunungan daratan.
+                        </p>
+                    </div>
+
+                    <div class="deep-ocean-card p-8 rounded-2xl hover:border-cyan-400/50 transition-all duration-300 group hover:-translate-y-1">
+                        <div class="w-14 h-14 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 mb-6 text-2xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-gem"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-cyan-100 mb-3">Discover the Extraordinary</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Makhluk bioluminesens dan ekosistem hidrothermal vent membuktikan bahwa kehidupan bertahan tanpa cahaya matahari di bawah tekanan ekstrim.
+                        </p>
+                    </div>
+
+                    <div class="deep-ocean-card p-8 rounded-2xl hover:border-cyan-400/50 transition-all duration-300 group hover:-translate-y-1">
+                        <div class="w-14 h-14 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 mb-6 text-2xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-globe"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-cyan-100 mb-3">Understand Our Planet</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Samudra mengatur suhu global dan menyerap Karbon Dioksida terbesar di planet ini. Menjaga laut adalah menjaga seluruh sistem bumi.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Sub-banner Highlight & Hashtags Grid -->
+                <div class="p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-deepSea-midnight via-slate-900 to-deepSea-darkest border border-cyan-500/30 text-center shadow-2xl relative overflow-hidden">
+                    <div class="absolute -right-12 -bottom-12 w-48 h-48 bg-cyan-500/10 rounded-full blur-2xl"></div>
+
+                    <h3 class="text-2xl sm:text-3xl font-extrabold text-cyan-200 tracking-tight">
+                        DEEP OCEAN — A Hidden Universe Beneath Our Feet
+                    </h3>
+                    <p class="text-cyan-400 font-bold text-sm sm:text-base mt-2 tracking-wide uppercase">
+                        Explore the Unknown. Discover the Extraordinary. Understand Our Planet.
+                    </p>
+
+                    <!-- Complete Hashtags Grid -->
+                    <div class="flex flex-wrap justify-center gap-2 sm:gap-2.5 mt-8">
+                        <span class="px-3.5 py-1.5 bg-cyan-950/70 text-cyan-300 text-xs font-semibold rounded-full border border-cyan-700/50 hover:border-cyan-400 transition-colors">#DeepOcean</span>
+                        <span class="px-3.5 py-1.5 bg-cyan-950/70 text-cyan-300 text-xs font-semibold rounded-full border border-cyan-700/50 hover:border-cyan-400 transition-colors">#DeepSea</span>
+                        <span class="px-3.5 py-1.5 bg-cyan-950/70 text-cyan-300 text-xs font-semibold rounded-full border border-cyan-700/50 hover:border-cyan-400 transition-colors">#OceanExploration</span>
+                        <span class="px-3.5 py-1.5 bg-cyan-950/70 text-cyan-300 text-xs font-semibold rounded-full border border-cyan-700/50 hover:border-cyan-400 transition-colors">#MysteriesOfTheOcean</span>
+                        <span class="px-3.5 py-1.5 bg-cyan-950/70 text-cyan-300 text-xs font-semibold rounded-full border border-cyan-700/50 hover:border-cyan-400 transition-colors">#UnderwaterWorld</span>
+                        <span class="px-3.5 py-1.5 bg-cyan-950/70 text-cyan-300 text-xs font-semibold rounded-full border border-cyan-700/50 hover:border-cyan-400 transition-colors">#MarineLife</span>
+                        <span class="px-3.5 py-1.5 bg-cyan-950/70 text-cyan-300 text-xs font-semibold rounded-full border border-cyan-700/50 hover:border-cyan-400 transition-colors">#OceanDiscovery</span>
+                        <span class="px-3.5 py-1.5 bg-cyan-950/70 text-cyan-300 text-xs font-semibold rounded-full border border-cyan-700/50 hover:border-cyan-400 transition-colors">#DeepSeaCreatures</span>
+                        <span class="px-3.5 py-1.5 bg-cyan-950/70 text-cyan-300 text-xs font-semibold rounded-full border border-cyan-700/50 hover:border-cyan-400 transition-colors">#OceanScience</span>
+                        <span class="px-3.5 py-1.5 bg-cyan-950/70 text-cyan-300 text-xs font-semibold rounded-full border border-cyan-700/50 hover:border-cyan-400 transition-colors">#BluePlanet</span>
+                        <span class="px-3.5 py-1.5 bg-cyan-950/70 text-cyan-300 text-xs font-semibold rounded-full border border-cyan-700/50 hover:border-cyan-400 transition-colors">#MarineBiodiversity</span>
+                        <span class="px-3.5 py-1.5 bg-cyan-950/70 text-cyan-300 text-xs font-semibold rounded-full border border-cyan-700/50 hover:border-cyan-400 transition-colors">#ExploreTheUnknown</span>
+                        <span class="px-3.5 py-1.5 bg-cyan-950/70 text-cyan-300 text-xs font-semibold rounded-full border border-cyan-700/50 hover:border-cyan-400 transition-colors">#NatureWonders</span>
+                        <span class="px-3.5 py-1.5 bg-cyan-950/70 text-cyan-300 text-xs font-semibold rounded-full border border-cyan-700/50 hover:border-cyan-400 transition-colors">#AmazingFacts</span>
+                        <span class="px-3.5 py-1.5 bg-cyan-950/70 text-cyan-300 text-xs font-semibold rounded-full border border-cyan-700/50 hover:border-cyan-400 transition-colors">#DidYouKnow</span>
+                        <span class="px-3.5 py-1.5 bg-cyan-950/70 text-cyan-300 text-xs font-semibold rounded-full border border-cyan-700/50 hover:border-cyan-400 transition-colors">#PlanetEarth</span>
+                        <span class="px-3.5 py-1.5 bg-cyan-950/70 text-cyan-300 text-xs font-semibold rounded-full border border-cyan-700/50 hover:border-cyan-400 transition-colors">#OceanWorld</span>
+                        <span class="px-3.5 py-1.5 bg-cyan-950/70 text-cyan-300 text-xs font-semibold rounded-full border border-cyan-700/50 hover:border-cyan-400 transition-colors">#HiddenUniverse</span>
+                        <span class="px-3.5 py-1.5 bg-cyan-950/70 text-cyan-300 text-xs font-semibold rounded-full border border-cyan-700/50 hover:border-cyan-400 transition-colors">#DiscoverTheOcean</span>
+                        <span class="px-3.5 py-1.5 bg-cyan-950/70 text-cyan-300 text-xs font-semibold rounded-full border border-cyan-700/50 hover:border-cyan-400 transition-colors">#KnowledgeIsPower</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Section: Kalkulator Jejak Karbon Mini Interaktif (Sliders) -->
+        <section id="calculator" class="py-20 bg-earth-softBg">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-gradient-to-br from-earth-deep to-slate-900 rounded-3xl p-8 sm:p-12 text-white shadow-2xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 -mt-12 -mr-12 w-64 h-64 bg-earth-blue/20 rounded-full blur-2xl pointer-events-none"></div>
+
+                    <div class="relative z-10 text-center max-w-xl mx-auto">
+                        <span class="text-xs font-bold tracking-widest text-earth-mint uppercase">Kalkulator Interaktif</span>
+                        <h3 class="text-2xl sm:text-3xl font-extrabold mt-1">Estimasi Jejak Karbon Harian</h3>
+                        <p class="text-slate-300 text-sm mt-2">Geser slider di bawah ini untuk melihat estimasi dampak emisi karbon harian Anda secara real-time.</p>
+                    </div>
+
+                    <div class="mt-8 max-w-lg mx-auto space-y-6 relative z-10">
+                        <!-- Transport Slider -->
+                        <div class="bg-slate-800/80 p-5 rounded-2xl border border-slate-700">
+                            <div class="flex justify-between items-center mb-2">
+                                <label class="text-xs font-semibold text-slate-300">Jarak Kendaraan Bermotor (km/hari)</label>
+                                <span id="transportVal" class="text-sm font-extrabold text-earth-mint">15 km</span>
+                            </div>
+                            <input type="range" id="transportRange" min="0" max="100" value="15" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-emerald-400" oninput="calculateCarbon()">
+                            <div class="flex justify-between text-[10px] text-slate-400 mt-1">
+                                <span>0 km (Jalan/Bebas Emisi)</span>
+                                <span>100 km</span>
+                            </div>
+                        </div>
+
+                        <!-- Electricity Slider -->
+                        <div class="bg-slate-800/80 p-5 rounded-2xl border border-slate-700">
+                            <div class="flex justify-between items-center mb-2">
+                                <label class="text-xs font-semibold text-slate-300">Konsumsi Listrik Rumah (kWh/hari)</label>
+                                <span id="electricVal" class="text-sm font-extrabold text-earth-mint">10 kWh</span>
+                            </div>
+                            <input type="range" id="electricRange" min="0" max="50" value="10" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-emerald-400" oninput="calculateCarbon()">
+                            <div class="flex justify-between text-[10px] text-slate-400 mt-1">
+                                <span>0 kWh</span>
+                                <span>50 kWh</span>
+                            </div>
+                        </div>
+
+                        <!-- Carbon Result Box -->
+                        <div class="p-6 rounded-2xl bg-white/10 border border-white/15 text-center backdrop-blur-md">
+                            <span class="text-xs text-slate-300 block uppercase tracking-wider">Perkiraan Total Emisi Harian</span>
+                            <span id="carbonResult" class="text-4xl font-extrabold text-earth-mint block my-1">11.7 kg CO₂</span>
+                            <p id="carbonFeedback" class="text-xs text-slate-200 mt-2 leading-relaxed">
+                                Tingkat emisi Anda sedang. Pertimbangkan transportasi umum atau berhemat energi listrik!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Section: Checklist Aksi Hijau Interaktif -->
+        <section id="actions" class="py-20 bg-white relative">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-gradient-to-br from-emerald-50/60 to-teal-50/60 rounded-3xl p-6 sm:p-10 border border-emerald-100 shadow-lg">
+                    <div class="text-center max-w-2xl mx-auto mb-8">
+                        <span class="px-3 py-1 rounded-full bg-emerald-100 text-earth-leaf text-xs font-bold uppercase tracking-wider">Tantangan Harian</span>
+                        <h3 class="text-3xl font-extrabold text-earth-deep mt-2">Checklist Aksi Hijau Anda</h3>
+                        <p class="text-slate-600 text-sm mt-1">Tandai aksi ramah lingkungan yang sudah Anda lakukan hari ini!</p>
+                    </div>
+
+                    <!-- Progress Bar -->
+                    <div class="mb-8 max-w-xl mx-auto bg-white p-4 rounded-2xl border border-slate-100 shadow-sm">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Pencapaian Hari Ini</span>
+                            <span id="progressText" class="text-sm font-extrabold text-earth-leaf">0% Selesai</span>
+                        </div>
+                        <div class="w-full h-3.5 bg-slate-100 rounded-full overflow-hidden p-0.5">
+                            <div id="progressBar" class="h-full bg-gradient-to-r from-earth-blue to-earth-leaf rounded-full transition-all duration-500 w-0"></div>
+                        </div>
+                    </div>
+
+                    <!-- Checklist Options -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
+                        <label class="flex items-start gap-4 p-4 rounded-2xl border border-slate-200 bg-white hover:border-earth-leaf cursor-pointer transition-all shadow-sm">
+                            <input type="checkbox" class="action-check mt-1 w-5 h-5 text-earth-leaf rounded focus:ring-earth-leaf accent-emerald-500" onchange="updateProgress()">
+                            <div>
+                                <span class="font-bold text-slate-800 text-sm block">Membawa Botol Minum (Tumbler)</span>
+                                <span class="text-xs text-slate-500">Mengurangi sampah plastik botol sekali pakai.</span>
+                            </div>
+                        </label>
+
+                        <label class="flex items-start gap-4 p-4 rounded-2xl border border-slate-200 bg-white hover:border-earth-leaf cursor-pointer transition-all shadow-sm">
+                            <input type="checkbox" class="action-check mt-1 w-5 h-5 text-earth-leaf rounded focus:ring-earth-leaf accent-emerald-500" onchange="updateProgress()">
+                            <div>
+                                <span class="font-bold text-slate-800 text-sm block">Mematikan Lampu &amp; Alat Elektronik</span>
+                                <span class="text-xs text-slate-500">Menghemat energi listrik saat tidak terpakai.</span>
+                            </div>
+                        </label>
+
+                        <label class="flex items-start gap-4 p-4 rounded-2xl border border-slate-200 bg-white hover:border-earth-leaf cursor-pointer transition-all shadow-sm">
+                            <input type="checkbox" class="action-check mt-1 w-5 h-5 text-earth-leaf rounded focus:ring-earth-leaf accent-emerald-500" onchange="updateProgress()">
+                            <div>
+                                <span class="font-bold text-slate-800 text-sm block">Menggunakan Tas Belanja Kain</span>
+                                <span class="text-xs text-slate-500">Menghindari kantong plastik sekali pakai.</span>
+                            </div>
+                        </label>
+
+                        <label class="flex items-start gap-4 p-4 rounded-2xl border border-slate-200 bg-white hover:border-earth-leaf cursor-pointer transition-all shadow-sm">
+                            <input type="checkbox" class="action-check mt-1 w-5 h-5 text-earth-leaf rounded focus:ring-earth-leaf accent-emerald-500" onchange="updateProgress()">
+                            <div>
+                                <span class="font-bold text-slate-800 text-sm block">Bersepeda / Jalan Kaki Jarak Dekat</span>
+                                <span class="text-xs text-slate-500">Menekan gas emisi kendaraan bermotor.</span>
+                            </div>
+                        </label>
+                    </div>
+
+                    <!-- Dynamic Achievement Badge -->
+                    <div id="badgeContainer" class="mt-8 p-4 rounded-2xl bg-emerald-100 border border-emerald-300 text-center max-w-md mx-auto hidden transition-all">
+                        <i class="fa-solid fa-award text-3xl text-earth-leaf mb-1"></i>
+                        <h4 id="badgeTitle" class="font-bold text-emerald-900">Pahlawan Hijau!</h4>
+                        <p id="badgeDesc" class="text-xs text-emerald-700">Langkah Anda memberikan dampak positif bagi kelestarian Bumi.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Section: Galeri Ekosistem & Modal Interaktif -->
+        <section id="gallery" class="py-20 bg-earth-softBg">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <h2 class="text-xs font-bold text-earth-blue uppercase tracking-widest mb-2">Pesona Alam Bumi</h2>
+                    <h3 class="text-3xl font-extrabold text-earth-deep">Galeri Ekosistem &amp; Inspirasi</h3>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Gallery Card 1: Ocean -->
+                    <div class="group relative rounded-2xl overflow-hidden shadow-md h-64 bg-slate-900 cursor-pointer" onclick="openModal('Keindahan Lautan Biru', 'Lautan menyerap lebih dari 90% panas berlebih akibat pemanasan global. Melindungi ekosistem laut adalah benteng utama menjaga stabilitas iklim planet bumi.')">
+                        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Samudra Biru" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-90 group-hover:opacity-100" onerror="this.src='https://placehold.co/800x600/0E87CC/FFFFFF?text=Ocean+Blue';">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity p-6 flex flex-col justify-end text-white">
+                            <span class="text-[10px] font-bold text-cyan-400 uppercase tracking-wider mb-1">Ocean Life</span>
+                            <h4 class="font-bold text-lg">Pesona Kedalaman Samudra</h4>
+                            <p class="text-xs text-slate-300 italic mt-1">Klik untuk membaca inspirasi modal.</p>
+                        </div>
+                    </div>
+
+                    <!-- Gallery Card 2: Deep Sea Creature -->
+                    <div class="group relative rounded-2xl overflow-hidden shadow-md h-64 bg-slate-900 cursor-pointer" onclick="openModal('Misteri Kedalaman Abisal', 'Di bawah kedalaman 1.000 meter, cahaya matahari tidak dapat menembus. Organisme laut dalam menghasilkan bioluminesensi unik sebagai sarana bertahan hidup.')">
+                        <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80" alt="Laut Dalam Bioluminesens" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-90 group-hover:opacity-100" onerror="this.src='https://placehold.co/800x600/031327/FFFFFF?text=Deep+Sea';">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity p-6 flex flex-col justify-end text-white">
+                            <span class="text-[10px] font-bold text-cyan-400 uppercase tracking-wider mb-1">Deep Sea</span>
+                            <h4 class="font-bold text-lg">Kehidupan Bioluminesens</h4>
+                            <p class="text-xs text-slate-300 italic mt-1">Klik untuk membaca inspirasi modal.</p>
+                        </div>
+                    </div>
+
+                    <!-- Gallery Card 3: Rainforest -->
+                    <div class="group relative rounded-2xl overflow-hidden shadow-md h-64 bg-slate-900 cursor-pointer" onclick="openModal('Hutan Tropis Basah', 'Hutan tropis adalah paru-paru bumi yang memproduksi persediaan oksigen murni dan menjadi habitat bagi lebih dari separuh spesies fauna di dunia.')">
+                        <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80" alt="Hutan Tropis" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-90 group-hover:opacity-100" onerror="this.src='https://placehold.co/800x600/10B981/FFFFFF?text=Rainforest';">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity p-6 flex flex-col justify-end text-white">
+                            <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-wider mb-1">Forest</span>
+                            <h4 class="font-bold text-lg">Keheningan Hutan Asri</h4>
+                            <p class="text-xs text-slate-300 italic mt-1">Klik untuk membaca inspirasi modal.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 8. Footer Lengkap dengan Logo Permanen -->
+    <footer class="bg-earth-deep text-slate-400 pt-16 pb-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10">
+            
+            <!-- Branding Logo & Tagline -->
+            <div class="space-y-4 md:col-span-2">
+                <div class="flex items-center gap-3">
+                    <img src="Gemini_Generated_Image_7wrq127wrq127wrq.jfif" 
+                         alt="My World & My Earth Footer Logo" 
+                         class="w-12 h-12 object-cover rounded-full bg-white p-0.5 shadow-lg border border-emerald-400" 
+                         onerror="this.onerror=null; this.src='https://placehold.co/100x100/0E87CC/FFFFFF?text=Logo';">
+                    <div class="flex flex-col">
+                        <span class="font-extrabold text-xl text-white leading-none">MY WORLD <span class="text-earth-mint">&amp; MY EARTH</span></span>
+                        <span class="text-[10px] font-bold text-slate-400 tracking-widest uppercase mt-1">Embrace | Protect | Cherish</span>
+                    </div>
+                </div>
+                <p class="text-sm text-slate-400 max-w-sm leading-relaxed">
+                    Inisiatif terbuka untuk memperluas edukasi kelestarian lingkungan, eksplorasi laut dalam, dan tindakan nyata menjaga keanekaragaman hayati bumi.
+                </p>
+            </div>
+
+            <!-- Fast Navigation -->
+            <div>
+                <h5 class="text-white font-bold text-sm mb-4 uppercase tracking-wider">Navigasi Utama</h5>
+                <ul class="space-y-2.5 text-sm">
+                    <li><a href="#hero" class="hover:text-earth-mint transition-colors">Beranda</a></li>
+                    <li><a href="#about" class="hover:text-earth-mint transition-colors">Visi Harmoni</a></li>
+                    <li><a href="#deep-ocean" class="hover:text-cyan-400 transition-colors">Deep Ocean</a></li>
+                    <li><a href="#calculator" class="hover:text-earth-mint transition-colors">Kalkulator Karbon</a></li>
+                    <li><a href="#actions" class="hover:text-earth-mint transition-colors">Aksi Hijau</a></li>
+                </ul>
+            </div>
+
+            <!-- Social Share Links -->
+            <div>
+                <h5 class="text-white font-bold text-sm mb-4 uppercase tracking-wider">Bagikan Movement</h5>
+                <p class="text-xs text-slate-400 mb-4">Sebarkan kesadaran pelestarian lingkungan ke komunitas Anda.</p>
+                <div class="flex gap-3 text-lg">
+                    <a href="https://twitter.com/intent/tweet?text=Jelajahi%20dan%20jaga%20bumi%20bersama%20My%20World%20and%20My%20Earth!" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-slate-800 hover:bg-earth-blue hover:text-white flex items-center justify-center transition-all shadow" aria-label="Twitter Share"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="https://www.facebook.com/sharer/sharer.php" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-slate-800 hover:bg-blue-600 hover:text-white flex items-center justify-center transition-all shadow" aria-label="Facebook Share"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://api.whatsapp.com/send?text=Yuk%20cek%20website%20My%20World%20and%20My%20Earth" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-slate-800 hover:bg-emerald-500 hover:text-white flex items-center justify-center transition-all shadow" aria-label="WhatsApp Share"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-6 border-t border-slate-800/80 text-center text-xs text-slate-500">
+            &copy; <span id="year"></span> My World &amp; My Earth. All rights reserved. Made with <i class="fa-solid fa-heart text-earth-leaf mx-1"></i> for Our Planet Earth.
+        </div>
+    </footer>
+
+    <!-- Interactive Info Modal Popup -->
+    <div id="infoModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl relative">
+            <button onclick="closeModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 text-slate-500 hover:bg-slate-200 flex items-center justify-center text-sm transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 rounded-xl bg-emerald-100 text-earth-leaf flex items-center justify-center text-lg">
+                    <i class="fa-solid fa-circle-info"></i>
+                </div>
+                <h4 id="modalTitle" class="text-xl font-bold text-earth-deep">Detail Informasi</h4>
+            </div>
+            <p id="modalBody" class="text-slate-600 text-sm leading-relaxed mb-6">Penjelasan lengkap mengenai topik yang dipilih.</p>
+            <button onclick="closeModal()" class="w-full py-3 rounded-xl bg-earth-leaf text-white font-bold text-sm hover:bg-emerald-600 transition-colors shadow">
+                Tutup &amp; Pahami
+            </button>
+        </div>
+    </div>
+
+    <!-- Interactive Logic Scripts -->
+    <script>
+        // Set Dynamic Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuIcon = document.getElementById('menuIcon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('flex');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.classList.replace('fa-xmark', 'fa-bars');
+            } else {
+                menuIcon.classList.replace('fa-bars', 'fa-xmark');
+            }
+        });
+
+        // Close mobile menu on click
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex');
+                menuIcon.classList.replace('fa-xmark', 'fa-bars');
+            });
+        });
+
+        // Carbon Calculator Functionality
+        function calculateCarbon() {
+            const transport = parseFloat(document.getElementById('transportRange').value);
+            const electric = parseFloat(document.getElementById('electricRange').value);
+
+            document.getElementById('transportVal').textContent = transport + ' km';
+            document.getElementById('electricVal').textContent = electric + ' kWh';
+
+            // Formula: 0.21 kg CO2/km + 0.85 kg CO2/kWh
+            const totalEmissions = ((transport * 0.21) + (electric * 0.85)).toFixed(1);
+            document.getElementById('carbonResult').textContent = totalEmissions + ' kg CO₂';
+
+            const feedback = document.getElementById('carbonFeedback');
+            if (totalEmissions < 8) {
+                feedback.textContent = "Luar biasa! Jejak karbon harian Anda sangat rendah. Pertahankan kebiasaan baik ini!";
+            } else if (totalEmissions < 18) {
+                feedback.textContent = "Tingkat emisi Anda sedang. Pertimbangkan menghemat listrik atau bersepeda untuk jarak dekat.";
+            } else {
+                feedback.textContent = "Tingkat emisi cukup tinggi. Mari kurangi pemakaian kendaraan bermotor dan hemat energi!";
+            }
+        }
+
+        // Green Actions Progress Counter
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('.action-check');
+            const checked = document.querySelectorAll('.action-check:checked');
+            const percentage = Math.round((checked.length / checkboxes.length) * 100);
+
+            document.getElementById('progressBar').style.width = percentage + '%';
+            document.getElementById('progressText').textContent = percentage + '% Selesai';
+
+            const badgeContainer = document.getElementById('badgeContainer');
+            const badgeTitle = document.getElementById('badgeTitle');
+
+            if (percentage > 0) {
+                badgeContainer.classList.remove('hidden');
+                if (percentage <= 50) {
+                    badgeTitle.textContent = "Penggerak Awal! 🌱";
+                } else {
+                    badgeTitle.textContent = "Pahlawan Hijau Bumi! 🌳";
+                }
+            } else {
+                badgeContainer.classList.add('hidden');
+            }
+        }
+
+        // Info Modal Handler
+        function openModal(title, text) {
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalBody').textContent = text;
+            document.getElementById('infoModal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('infoModal').classList.add('hidden');
+        }
+
+        // Interactive 3D Globe Simulation (Canvas)
+        window.onload = function() {
+            calculateCarbon(); // Initialize carbon calculation
+
+            const canvas = document.getElementById('globeCanvas');
+            if (!canvas) return;
+            
+            const ctx = canvas.getContext('2d');
+            let width = canvas.width = canvas.parentElement.clientWidth;
+            let height = canvas.height = canvas.parentElement.clientHeight;
+
+            let rotation = 0;
+            let isDragging = false;
+            let previousMouseX = 0;
+
+            const dots = [];
+            const numDots = 420;
+            const radius = Math.min(width, height) * 0.38;
+
+            for (let i = 0; i < numDots; i++) {
+                const theta = Math.acos(2 * Math.random() - 1);
+                const phi = 2 * Math.PI * Math.random();
+                dots.push({
+                    x: radius * Math.sin(theta) * Math.cos(phi),
+                    y: radius * Math.sin(theta) * Math.sin(phi),
+                    z: radius * Math.cos(theta),
+                    baseRadius: Math.random() * 2 + 1.2
+                });
+            }
+
+            function draw() {
+                ctx.clearRect(0, 0, width, height);
+                const centerX = width / 2;
+                const centerY = height / 2;
+
+                // Atmosphere Glow Effect
+                const gradient = ctx.createRadialGradient(centerX, centerY, radius * 0.8, centerX, centerY, radius * 1.15);
+                gradient.addColorStop(0, 'rgba(45, 212, 191, 0.15)');
+                gradient.addColorStop(1, 'rgba(14, 135, 204, 0)');
+                ctx.fillStyle = gradient;
+                ctx.beginPath();
+                ctx.arc(centerX, centerY, radius * 1.15, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Sort dots by Z depth
+                dots.sort((a, b) => a.z - b.z);
+
+                dots.forEach(dot => {
+                    const cosRot = Math.cos(rotation);
+                    const sinRot = Math.sin(rotation);
+
+                    const rotatedX = dot.x * cosRot - dot.z * sinRot;
+                    const rotatedZ = dot.z * cosRot + dot.x * sinRot;
+
+                    const scale = (rotatedZ + radius * 2) / (radius * 3);
+                    const alpha = Math.max(0.1, (rotatedZ + radius) / (radius * 2));
+
+                    ctx.beginPath();
+                    ctx.arc(centerX + rotatedX, centerY + dot.y, dot.baseRadius * scale, 0, Math.PI * 2);
+                    
+                    if (rotatedZ > 0) {
+                        ctx.fillStyle = `rgba(16, 185, 129, ${alpha})`;
+                    } else {
+                        ctx.fillStyle = `rgba(14, 135, 204, ${alpha * 0.4})`;
+                    }
+                    ctx.fill();
+                });
+
+                if (!isDragging) {
+                    rotation += 0.004; // Smooth Auto Rotation
+                }
+
+                requestAnimationFrame(draw);
+            }
+
+            // Drag Mouse Listeners
+            canvas.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                previousMouseX = e.clientX;
+            });
+
+            window.addEventListener('mouseup', () => {
+                isDragging = false;
+            });
+
+            window.addEventListener('mousemove', (e) => {
+                if (isDragging) {
+                    const deltaX = e.clientX - previousMouseX;
+                    rotation += deltaX * 0.01;
+                    previousMouseX = e.clientX;
+                }
+            });
+
+            // Drag Touch Listeners for Mobile
+            canvas.addEventListener('touchstart', (e) => {
+                if(e.touches.length === 1) {
+                    isDragging = true;
+                    previousMouseX = e.touches[0].clientX;
+                }
+            });
+
+            window.addEventListener('touchend', () => {
+                isDragging = false;
+            });
+
+            window.addEventListener('touchmove', (e) => {
+                if (isDragging && e.touches.length === 1) {
+                    const deltaX = e.touches[0].clientX - previousMouseX;
+                    rotation += deltaX * 0.01;
+                    previousMouseX = e.touches[0].clientX;
+                }
+            });
+
+            // Resize Event Handler
+            window.addEventListener('resize', () => {
+                if (canvas.parentElement) {
+                    width = canvas.width = canvas.parentElement.clientWidth;
+                    height = canvas.height = canvas.parentElement.clientHeight;
+                }
+            });
+
+            draw();
+        };
+    </script>
+</body>
+</html>
